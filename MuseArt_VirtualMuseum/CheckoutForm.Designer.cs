@@ -34,6 +34,11 @@
             this.pricelLbl = new System.Windows.Forms.Label();
             this.totalText = new System.Windows.Forms.Label();
             this.checkOutPanel = new System.Windows.Forms.Panel();
+            this.CVV_ErrorLbl = new System.Windows.Forms.Label();
+            this.DateErrorLbl = new System.Windows.Forms.Label();
+            this.NameErrorLbl = new System.Windows.Forms.Label();
+            this.Email_ErrorLbl = new System.Windows.Forms.Label();
+            this.CCN_ErrorLbl = new System.Windows.Forms.Label();
             this.emailWarningLbl = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -73,7 +78,7 @@
             this.panel1.Controls.Add(this.pricelLbl);
             this.panel1.Controls.Add(this.totalText);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 403);
+            this.panel1.Location = new System.Drawing.Point(0, 450);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(375, 48);
             this.panel1.TabIndex = 21;
@@ -124,7 +129,13 @@
             // 
             // checkOutPanel
             // 
+            this.checkOutPanel.AutoSize = true;
             this.checkOutPanel.BackColor = System.Drawing.SystemColors.Info;
+            this.checkOutPanel.Controls.Add(this.CVV_ErrorLbl);
+            this.checkOutPanel.Controls.Add(this.DateErrorLbl);
+            this.checkOutPanel.Controls.Add(this.NameErrorLbl);
+            this.checkOutPanel.Controls.Add(this.Email_ErrorLbl);
+            this.checkOutPanel.Controls.Add(this.CCN_ErrorLbl);
             this.checkOutPanel.Controls.Add(this.emailWarningLbl);
             this.checkOutPanel.Controls.Add(this.emailTextBox);
             this.checkOutPanel.Controls.Add(this.label4);
@@ -140,10 +151,60 @@
             this.checkOutPanel.Controls.Add(this.NametextBox);
             this.checkOutPanel.Controls.Add(this.nameLbl);
             this.checkOutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkOutPanel.Location = new System.Drawing.Point(0, 51);
+            this.checkOutPanel.Location = new System.Drawing.Point(0, 0);
             this.checkOutPanel.Name = "checkOutPanel";
-            this.checkOutPanel.Size = new System.Drawing.Size(375, 352);
+            this.checkOutPanel.Size = new System.Drawing.Size(375, 399);
             this.checkOutPanel.TabIndex = 22;
+            // 
+            // CVV_ErrorLbl
+            // 
+            this.CVV_ErrorLbl.AutoSize = true;
+            this.CVV_ErrorLbl.ForeColor = System.Drawing.Color.Red;
+            this.CVV_ErrorLbl.Location = new System.Drawing.Point(213, 279);
+            this.CVV_ErrorLbl.Name = "CVV_ErrorLbl";
+            this.CVV_ErrorLbl.Size = new System.Drawing.Size(86, 15);
+            this.CVV_ErrorLbl.TabIndex = 42;
+            this.CVV_ErrorLbl.Text = "* CVV is invalid";
+            // 
+            // DateErrorLbl
+            // 
+            this.DateErrorLbl.AutoSize = true;
+            this.DateErrorLbl.ForeColor = System.Drawing.Color.Red;
+            this.DateErrorLbl.Location = new System.Drawing.Point(56, 279);
+            this.DateErrorLbl.Name = "DateErrorLbl";
+            this.DateErrorLbl.Size = new System.Drawing.Size(88, 15);
+            this.DateErrorLbl.TabIndex = 41;
+            this.DateErrorLbl.Text = "* Date is invalid";
+            // 
+            // NameErrorLbl
+            // 
+            this.NameErrorLbl.AutoSize = true;
+            this.NameErrorLbl.ForeColor = System.Drawing.Color.Red;
+            this.NameErrorLbl.Location = new System.Drawing.Point(126, 30);
+            this.NameErrorLbl.Name = "NameErrorLbl";
+            this.NameErrorLbl.Size = new System.Drawing.Size(96, 15);
+            this.NameErrorLbl.TabIndex = 40;
+            this.NameErrorLbl.Text = "* Name is invalid";
+            // 
+            // Email_ErrorLbl
+            // 
+            this.Email_ErrorLbl.AutoSize = true;
+            this.Email_ErrorLbl.ForeColor = System.Drawing.Color.Red;
+            this.Email_ErrorLbl.Location = new System.Drawing.Point(94, 87);
+            this.Email_ErrorLbl.Name = "Email_ErrorLbl";
+            this.Email_ErrorLbl.Size = new System.Drawing.Size(136, 15);
+            this.Email_ErrorLbl.TabIndex = 39;
+            this.Email_ErrorLbl.Text = "* Email address is invalid";
+            // 
+            // CCN_ErrorLbl
+            // 
+            this.CCN_ErrorLbl.AutoSize = true;
+            this.CCN_ErrorLbl.ForeColor = System.Drawing.Color.Red;
+            this.CCN_ErrorLbl.Location = new System.Drawing.Point(177, 175);
+            this.CCN_ErrorLbl.Name = "CCN_ErrorLbl";
+            this.CCN_ErrorLbl.Size = new System.Drawing.Size(124, 15);
+            this.CCN_ErrorLbl.TabIndex = 38;
+            this.CCN_ErrorLbl.Text = "* Credit Card is invalid";
             // 
             // emailWarningLbl
             // 
@@ -151,7 +212,7 @@
             this.emailWarningLbl.BackColor = System.Drawing.Color.Transparent;
             this.emailWarningLbl.Font = new System.Drawing.Font("Roboto Cn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.emailWarningLbl.ForeColor = System.Drawing.Color.IndianRed;
-            this.emailWarningLbl.Location = new System.Drawing.Point(92, 80);
+            this.emailWarningLbl.Location = new System.Drawing.Point(92, 89);
             this.emailWarningLbl.Name = "emailWarningLbl";
             this.emailWarningLbl.Size = new System.Drawing.Size(222, 13);
             this.emailWarningLbl.TabIndex = 37;
@@ -159,7 +220,7 @@
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(56, 100);
+            this.emailTextBox.Location = new System.Drawing.Point(56, 109);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(255, 23);
             this.emailTextBox.TabIndex = 2;
@@ -167,7 +228,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 78);
+            this.label4.Location = new System.Drawing.Point(56, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 15);
             this.label4.TabIndex = 35;
@@ -177,7 +238,7 @@
             // 
             this.totalLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.totalLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.totalLbl.Location = new System.Drawing.Point(12, 306);
+            this.totalLbl.Location = new System.Drawing.Point(12, 332);
             this.totalLbl.Name = "totalLbl";
             this.totalLbl.Size = new System.Drawing.Size(115, 25);
             this.totalLbl.TabIndex = 34;
@@ -188,7 +249,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(95, 293);
+            this.label5.Location = new System.Drawing.Point(95, 319);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 15);
             this.label5.TabIndex = 33;
@@ -207,7 +268,7 @@
             this.submitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.submitBtn.IconSize = 25;
             this.submitBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.submitBtn.Location = new System.Drawing.Point(168, 293);
+            this.submitBtn.Location = new System.Drawing.Point(168, 319);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.submitBtn.Size = new System.Drawing.Size(143, 38);
@@ -220,7 +281,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 209);
+            this.label3.Location = new System.Drawing.Point(56, 233);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 15);
             this.label3.TabIndex = 30;
@@ -228,7 +289,7 @@
             // 
             // DatemaskedTB
             // 
-            this.DatemaskedTB.Location = new System.Drawing.Point(56, 227);
+            this.DatemaskedTB.Location = new System.Drawing.Point(56, 251);
             this.DatemaskedTB.Mask = "00/0000";
             this.DatemaskedTB.Name = "DatemaskedTB";
             this.DatemaskedTB.Size = new System.Drawing.Size(100, 23);
@@ -238,7 +299,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(211, 209);
+            this.label2.Location = new System.Drawing.Point(211, 233);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 15);
             this.label2.TabIndex = 28;
@@ -246,7 +307,7 @@
             // 
             // CvvmaskedTB
             // 
-            this.CvvmaskedTB.Location = new System.Drawing.Point(211, 227);
+            this.CvvmaskedTB.Location = new System.Drawing.Point(211, 251);
             this.CvvmaskedTB.Mask = "000";
             this.CvvmaskedTB.Name = "CvvmaskedTB";
             this.CvvmaskedTB.Size = new System.Drawing.Size(100, 23);
@@ -256,7 +317,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 138);
+            this.label1.Location = new System.Drawing.Point(56, 175);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 15);
             this.label1.TabIndex = 26;
@@ -265,16 +326,16 @@
             // CreditmaskedTB
             // 
             this.CreditmaskedTB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreditmaskedTB.Location = new System.Drawing.Point(53, 156);
+            this.CreditmaskedTB.Location = new System.Drawing.Point(56, 196);
             this.CreditmaskedTB.Mask = "0000 0000 0000 0000";
             this.CreditmaskedTB.Name = "CreditmaskedTB";
-            this.CreditmaskedTB.Size = new System.Drawing.Size(258, 29);
+            this.CreditmaskedTB.Size = new System.Drawing.Size(255, 29);
             this.CreditmaskedTB.TabIndex = 3;
             this.CreditmaskedTB.ValidatingType = typeof(int);
             // 
             // NametextBox
             // 
-            this.NametextBox.Location = new System.Drawing.Point(56, 46);
+            this.NametextBox.Location = new System.Drawing.Point(56, 53);
             this.NametextBox.Name = "NametextBox";
             this.NametextBox.Size = new System.Drawing.Size(255, 23);
             this.NametextBox.TabIndex = 1;
@@ -282,15 +343,16 @@
             // nameLbl
             // 
             this.nameLbl.AutoSize = true;
-            this.nameLbl.Location = new System.Drawing.Point(56, 23);
+            this.nameLbl.Location = new System.Drawing.Point(56, 30);
             this.nameLbl.Name = "nameLbl";
-            this.nameLbl.Size = new System.Drawing.Size(112, 15);
+            this.nameLbl.Size = new System.Drawing.Size(61, 15);
             this.nameLbl.TabIndex = 23;
-            this.nameLbl.Text = "Name and Surname";
+            this.nameLbl.Text = "Full Name";
             // 
             // confirmationPanel
             // 
             this.confirmationPanel.BackColor = System.Drawing.SystemColors.Info;
+            this.confirmationPanel.Controls.Add(this.checkOutPanel);
             this.confirmationPanel.Controls.Add(this.orderNumberLbl);
             this.confirmationPanel.Controls.Add(this.emailLbl);
             this.confirmationPanel.Controls.Add(this.emailTxtLbl);
@@ -301,7 +363,7 @@
             this.confirmationPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmationPanel.Location = new System.Drawing.Point(0, 51);
             this.confirmationPanel.Name = "confirmationPanel";
-            this.confirmationPanel.Size = new System.Drawing.Size(375, 352);
+            this.confirmationPanel.Size = new System.Drawing.Size(375, 399);
             this.confirmationPanel.TabIndex = 23;
             // 
             // orderNumberLbl
@@ -309,7 +371,7 @@
             this.orderNumberLbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.orderNumberLbl.BackColor = System.Drawing.Color.Transparent;
             this.orderNumberLbl.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.orderNumberLbl.Location = new System.Drawing.Point(136, 198);
+            this.orderNumberLbl.Location = new System.Drawing.Point(136, 210);
             this.orderNumberLbl.Name = "orderNumberLbl";
             this.orderNumberLbl.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.orderNumberLbl.Size = new System.Drawing.Size(117, 22);
@@ -323,7 +385,7 @@
             this.emailLbl.BackColor = System.Drawing.Color.Transparent;
             this.emailLbl.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.emailLbl.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.emailLbl.Location = new System.Drawing.Point(108, 294);
+            this.emailLbl.Location = new System.Drawing.Point(108, 310);
             this.emailLbl.Name = "emailLbl";
             this.emailLbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.emailLbl.Size = new System.Drawing.Size(170, 21);
@@ -335,7 +397,7 @@
             // 
             this.emailTxtLbl.AutoSize = true;
             this.emailTxtLbl.Font = new System.Drawing.Font("Roboto Cn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.emailTxtLbl.Location = new System.Drawing.Point(102, 276);
+            this.emailTxtLbl.Location = new System.Drawing.Point(102, 288);
             this.emailTxtLbl.Name = "emailTxtLbl";
             this.emailTxtLbl.Size = new System.Drawing.Size(182, 15);
             this.emailTxtLbl.TabIndex = 8;
@@ -345,7 +407,7 @@
             // 
             this.orderNumberTxtLbl.AutoSize = true;
             this.orderNumberTxtLbl.Font = new System.Drawing.Font("Roboto Cn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.orderNumberTxtLbl.Location = new System.Drawing.Point(161, 183);
+            this.orderNumberTxtLbl.Location = new System.Drawing.Point(161, 195);
             this.orderNumberTxtLbl.Name = "orderNumberTxtLbl";
             this.orderNumberTxtLbl.Size = new System.Drawing.Size(65, 13);
             this.orderNumberTxtLbl.TabIndex = 6;
@@ -355,7 +417,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Roboto Cn", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(104, 233);
+            this.label6.Location = new System.Drawing.Point(104, 245);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(179, 19);
             this.label6.TabIndex = 2;
@@ -364,7 +426,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(148, 72);
+            this.pictureBox1.Location = new System.Drawing.Point(148, 84);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(91, 101);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -375,7 +437,7 @@
             // 
             this.thankyouLbl.AutoSize = true;
             this.thankyouLbl.Font = new System.Drawing.Font("Roboto Cn", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.thankyouLbl.Location = new System.Drawing.Point(108, 44);
+            this.thankyouLbl.Location = new System.Drawing.Point(108, 56);
             this.thankyouLbl.Name = "thankyouLbl";
             this.thankyouLbl.Size = new System.Drawing.Size(170, 19);
             this.thankyouLbl.TabIndex = 0;
@@ -424,9 +486,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 451);
+            this.ClientSize = new System.Drawing.Size(375, 498);
             this.ControlBox = false;
-            this.Controls.Add(this.checkOutPanel);
             this.Controls.Add(this.confirmationPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelTop);
@@ -478,5 +539,10 @@
         private Button btnWindowClose;
         private Panel panelTop;
         private Label emailWarningLbl;
+        private Label NameErrorLbl;
+        private Label Email_ErrorLbl;
+        private Label CCN_ErrorLbl;
+        private Label CVV_ErrorLbl;
+        private Label DateErrorLbl;
     }
 }

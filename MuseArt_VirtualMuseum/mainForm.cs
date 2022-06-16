@@ -27,7 +27,6 @@ namespace MuseArt_VirtualMuseum
         string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         // did the above because |DataDirectory| didn't work
 
-        string constr = @"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\DatabaseMuseArt.mdf;Integrated Security=True;User Instance=True;";
         public SqlConnection exhibitionsDB = null;
 
         public Exhibit exhData = new Exhibit();
@@ -50,7 +49,7 @@ namespace MuseArt_VirtualMuseum
 
             // sql server connection
             // Starting SQL Connection with local database 
-            exhibitionsDB = new SqlConnection(@"Data Source =(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + projectDirectory + @"\DatabaseMuseArt.mdf; Integrated Security = True; Connect Timeout = 30");            //SqlConnection exhibitionsDB = new SqlConnection(@"data source = LAPTOP-9ISRFRVP\SQLEXPRESS; initial catalog = DBMuseArt_Virtual; user id = sa; password = 1; ");
+            exhibitionsDB = new SqlConnection(@"Data Source =(LocalDB)\MSSQLLocalDB; AttachDbFilename=" + projectDirectory + @"\DatabaseMuseArt.mdf; Integrated Security = True; Connect Timeout = 30");
             //addExhibites();
             exhibitionsDB.Open();
             SqlCommand cmd = new SqlCommand("select * from Exhibitions", exhibitionsDB); // select all data from exhibition database

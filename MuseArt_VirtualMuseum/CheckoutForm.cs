@@ -16,10 +16,25 @@ namespace MuseArt_VirtualMuseum
 {
     public partial class CheckoutForm : Form
     {
+        public static Label cvvError = new Label();
+        public static Label dateError = new Label();
+        public static Label ccnError = new Label();
         public CheckoutForm(string total)
         {
             InitializeComponent();
             totalLbl.Text = total;
+
+            cvvError = CVV_ErrorLbl;
+            dateError = DateErrorLbl;
+            ccnError = CCN_ErrorLbl;
+
+            cvvError.Visible = false;
+            dateError.Visible = false;
+            ccnError.Visible = false;
+            NameErrorLbl.Visible = false;
+            Email_ErrorLbl.Visible = false;
+
+
 
             this.ControlBox = false; // removing the controlbox, i will design it manually
             this.DoubleBuffered = true;
@@ -34,21 +49,35 @@ namespace MuseArt_VirtualMuseum
             
             bool failed = false;
             // check user input 
-            if (nameLbl.Text.Length < 2)
+            if (NametextBox.Text.Length < 2)
             {
-                MessageBox.Show("Invalid Name", "Name cannot be empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NameErrorLbl.Visible = true;
                 failed = true;
             }
-            else if (!communicateForm.IsValidEmail(emailTextBox.Text))
+            else
             {
-                MessageBox.Show("Please fill the email correctly", "Invalid email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NameErrorLbl.Visible = false;
+                failed = false;
+            }
+            if (!communicateForm.IsValidEmail(emailTextBox.Text))
+            {
+                emailWarningLbl.Visible = false;
+                Email_ErrorLbl.Visible = true;
                 failed = true;
             }
-            else if (!IsCreditCardInfoValid(CreditmaskedTB.Text, DatemaskedTB.Text, CvvmaskedTB.Text))
+            else
             {
-                MessageBox.Show("Please fill the credit card informations correctly", "Invalid Credit Card Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                emailWarningLbl.Visible = true;
+                Email_ErrorLbl.Visible = false;
+                failed = false;
+            }
+            if (!IsCreditCardInfoValid(CreditmaskedTB.Text, DatemaskedTB.Text, CvvmaskedTB.Text))
+            {
                 failed = true;
             }
+            else
+                failed = false;
+
             if (!failed)
             {
                 message = "The exhibition copy will be sent to given email address (" + emailTextBox.Text + ")\nDo you want to continue?";
@@ -81,14 +110,45 @@ namespace MuseArt_VirtualMuseum
             var yearCheck = new Regex(@"^20[0-9]{2}$");
             var cvvCheck = new Regex(@"^\d{3}$");
 
+            bool fail = false;
+
             if (!cardCheck.IsMatch(cardNo)) // <1>check card number is valid
-                return false;
+            {
+                ccnError.Visible = true;
+                fail = true;
+            }
+            else
+            {
+                ccnError.Visible = false;
+                fail = false;
+            }
+                
             if (!cvvCheck.IsMatch(cvv)) // <2>check cvv is valid as "999"
-                return false;
+            {
+                cvvError.Visible = true;
+                fail=true;
+            }
+            else
+            {
+                cvvError.Visible = false;
+                fail = false;
+            }
 
             var dateParts = expiryDate.Split('/'); //expiry date in from MM/yyyy            
             if (!monthCheck.IsMatch(dateParts[0]) || !yearCheck.IsMatch(dateParts[1])) // <3 - 6>
-                return false; // ^ check date format is valid as "MM/yyyy"
+            {
+                // ^ check date format is valid as "MM/yyyy"
+                dateError.Visible = true;
+                fail = true;
+            } 
+            else
+            {
+                dateError.Visible = false;
+                fail = false;
+            }
+
+            if(fail)
+                return false;
 
             var year = int.Parse(dateParts[1], CultureInfo.InvariantCulture);
             var month = int.Parse(dateParts[0], CultureInfo.InvariantCulture);
