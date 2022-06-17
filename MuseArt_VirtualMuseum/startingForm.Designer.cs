@@ -34,8 +34,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.loadingBar = new System.Windows.Forms.Panel();
+            this.adminPicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.adminPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -72,12 +74,25 @@
             this.loadingBar.Size = new System.Drawing.Size(34, 10);
             this.loadingBar.TabIndex = 2;
             // 
+            // adminPicture
+            // 
+            this.adminPicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.adminPicture.Image = ((System.Drawing.Image)(resources.GetObject("adminPicture.Image")));
+            this.adminPicture.Location = new System.Drawing.Point(28, 27);
+            this.adminPicture.Name = "adminPicture";
+            this.adminPicture.Size = new System.Drawing.Size(21, 25);
+            this.adminPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.adminPicture.TabIndex = 3;
+            this.adminPicture.TabStop = false;
+            this.adminPicture.Click += new System.EventHandler(this.adminPicture_Click);
+            // 
             // startingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(500, 330);
+            this.Controls.Add(this.adminPicture);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Cursor = System.Windows.Forms.Cursors.AppStarting;
@@ -89,6 +104,7 @@
             this.Load += new System.EventHandler(this.startingForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.adminPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -98,5 +114,6 @@
         private System.Windows.Forms.Timer timer1;
         private Panel panel2;
         private Panel loadingBar;
+        private PictureBox adminPicture;
     }
 }

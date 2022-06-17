@@ -34,5 +34,13 @@ namespace MuseArt_VirtualMuseum
         {
 
         }
+
+        private void adminPicture_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            LoginForm ap = new LoginForm(); // new form to continue 
+            ap.Show(); // showing new form
+            this.Hide(); // closing the starter splash (startingForm)
+        }
     }
 }

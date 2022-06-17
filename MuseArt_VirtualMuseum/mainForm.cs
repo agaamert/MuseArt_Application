@@ -27,7 +27,7 @@ namespace MuseArt_VirtualMuseum
         string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
         // did the above because |DataDirectory| didn't work
 
-        public SqlConnection exhibitionsDB = null;
+        public static SqlConnection MuseArtDB = null;
 
         public Exhibit exhData = new Exhibit();
         public static List<Exhibit> exhibitionsList = new List<Exhibit>();
@@ -49,10 +49,10 @@ namespace MuseArt_VirtualMuseum
 
             // sql server connection
             // Starting SQL Connection with local database 
-            exhibitionsDB = new SqlConnection(@"Data Source =(LocalDB)\MSSQLLocalDB; AttachDbFilename=" + projectDirectory + @"\DatabaseMuseArt.mdf; Integrated Security = True; Connect Timeout = 30");
+            MuseArtDB = new SqlConnection(@"Data Source =(LocalDB)\MSSQLLocalDB; AttachDbFilename=" + projectDirectory + @"\DatabaseMuseArt.mdf; Integrated Security = True; Connect Timeout = 30");
             //addExhibites();
-            exhibitionsDB.Open();
-            SqlCommand cmd = new SqlCommand("select * from Exhibitions", exhibitionsDB); // select all data from exhibition database
+            MuseArtDB.Open();
+            SqlCommand cmd = new SqlCommand("select * from Exhibitions", MuseArtDB); // select all data from exhibition database
             SqlDataReader reader = cmd.ExecuteReader(); // execute the data from cmd
 
             while (reader.Read()) // while database has data
@@ -67,7 +67,7 @@ namespace MuseArt_VirtualMuseum
                 exhData.Price = float.Parse(reader["price"].ToString(), CultureInfo.InvariantCulture);
                 exhibitionsList.Add(exhData);
             }
-            exhibitionsDB.Close();
+            MuseArtDB.Close();
 
             //hover tool notes init
             this.btnWindowClose.MouseHover += button1_MouseHover;
@@ -89,10 +89,10 @@ namespace MuseArt_VirtualMuseum
 
             bool sql_fail = false;
             // opening sql connection
-            exhibitionsDB.Open();
+            MuseArtDB.Open();
 
             // init sql insert command
-            SqlCommand cmd = new SqlCommand("insert into Exhibitions values(@id, @name, @desc, @cat, @date)", exhibitionsDB);
+            SqlCommand cmd = new SqlCommand("insert into Exhibitions values(@id, @name, @desc, @cat, @date)", MuseArtDB);
             // adding user info as parameters of query
             cmd.Parameters.Add("@id", SqlDbType.Int).Value = 2;
             cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = "Past";
@@ -111,7 +111,7 @@ namespace MuseArt_VirtualMuseum
                 sql_fail = true;
             }
             // close connection
-            exhibitionsDB.Close();
+            MuseArtDB.Close();
 
 
         }
