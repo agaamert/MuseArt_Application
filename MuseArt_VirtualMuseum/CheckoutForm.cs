@@ -57,7 +57,6 @@ namespace MuseArt_VirtualMuseum
             else
             {
                 NameErrorLbl.Visible = false;
-                failed = false;
             }
             if (!communicateForm.IsValidEmail(emailTextBox.Text))
             {
@@ -69,14 +68,11 @@ namespace MuseArt_VirtualMuseum
             {
                 emailWarningLbl.Visible = true;
                 Email_ErrorLbl.Visible = false;
-                failed = false;
             }
             if (!IsCreditCardInfoValid(CreditmaskedTB.Text, DatemaskedTB.Text, CvvmaskedTB.Text))
             {
                 failed = true;
             }
-            else
-                failed = false;
 
             if (!failed)
             {
@@ -105,7 +101,7 @@ namespace MuseArt_VirtualMuseum
 
         public static bool IsCreditCardInfoValid(string cardNo, string expiryDate, string cvv)
         {
-            var cardCheck = new Regex(@"^(1298|4165|1267|4512|4567|8901|8933)([\-\s]?[0-9]{4}){3}$");
+            var cardCheck = new Regex(@"^(1298|4165|1267|4512|4567|8901|8933|5351|4305)([\-\s]?[0-9]{4}){3}$");
             var monthCheck = new Regex(@"^(0[1-9]|1[0-2])$");
             var yearCheck = new Regex(@"^20[0-9]{2}$");
             var cvvCheck = new Regex(@"^\d{3}$");
@@ -120,7 +116,6 @@ namespace MuseArt_VirtualMuseum
             else
             {
                 ccnError.Visible = false;
-                fail = false;
             }
                 
             if (!cvvCheck.IsMatch(cvv)) // <2>check cvv is valid as "999"
@@ -131,7 +126,6 @@ namespace MuseArt_VirtualMuseum
             else
             {
                 cvvError.Visible = false;
-                fail = false;
             }
 
             var dateParts = expiryDate.Split('/'); //expiry date in from MM/yyyy            
@@ -144,7 +138,6 @@ namespace MuseArt_VirtualMuseum
             else
             {
                 dateError.Visible = false;
-                fail = false;
             }
 
             if(fail)

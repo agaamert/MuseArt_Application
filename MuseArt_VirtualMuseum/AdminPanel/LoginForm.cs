@@ -33,7 +33,7 @@ namespace MuseArt_VirtualMuseum
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                this.Close();
+                Application.Exit();
             }
         }
 
@@ -65,7 +65,7 @@ namespace MuseArt_VirtualMuseum
                 }
             }
             else
-                MessageBox.Show("The email or password is incorrect.", "Account cannot find", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("The username or password is incorrect.", "Account cannot find", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             MartDB.Close();
 

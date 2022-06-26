@@ -35,7 +35,6 @@ namespace MuseArt_VirtualMuseum.menuForms
             else
             {
                 NameErrorLbl.Visible = false;
-                failed = false;
             }
 
             if (SubjectTBox.Text.Length < 2)
@@ -46,18 +45,15 @@ namespace MuseArt_VirtualMuseum.menuForms
             else
             {
                 SubjectErrorLbl.Visible = false;
-                failed = false;
             }
 
             if (!IsValidEmail(emailText.Text))
             {
                 EmailErrorLbl.Visible = true;
-                failed = true;
             }
             else
             {
                 EmailErrorLbl.Visible = false;
-                failed = false;
             }
 
             if (messageTB.Text.Length < 10)
@@ -68,7 +64,6 @@ namespace MuseArt_VirtualMuseum.menuForms
             else
             {
                 MsgErrorLbl.Visible = false;
-                failed = false;
             }
 
 
@@ -77,7 +72,12 @@ namespace MuseArt_VirtualMuseum.menuForms
                 insertEmail(nameText.Text, SubjectTBox.Text, emailText.Text, messageTB.Text);
 
                 MessageBox.Show("Email Sent Succesfully!\nOur admins will reply you as soon as.\nThank you!", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                nameText.Text = emailText.Text = messageTB.Text = "";
+                nameText.Text = emailText.Text = messageTB.Text = SubjectTBox.Text = "";
+
+                NameErrorLbl.Visible = false;
+                SubjectErrorLbl.Visible = false;
+                EmailErrorLbl.Visible = false;
+                MsgErrorLbl.Visible = false;
             }
         }
         private void insertEmail(string name, string subject, string email, string msg)
@@ -107,8 +107,6 @@ namespace MuseArt_VirtualMuseum.menuForms
             }
             // close connection
             mainForm.MuseArtDB.Close();
-
-
         }
 
         public static bool IsValidEmail(string email)

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.panelDesktop = new System.Windows.Forms.Panel();
+            this.adminPanelLbl = new System.Windows.Forms.Label();
             this.InboxFlowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.btnWindowMinimize = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.LogoutBtn = new FontAwesome.Sharp.IconButton();
             this.InboxBtn = new FontAwesome.Sharp.IconButton();
-            this.ExhibitionsBtn = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
             this.panelDesktop.SuspendLayout();
@@ -55,6 +55,7 @@
             // 
             this.panelDesktop.AutoScroll = true;
             this.panelDesktop.BackColor = System.Drawing.SystemColors.Info;
+            this.panelDesktop.Controls.Add(this.adminPanelLbl);
             this.panelDesktop.Controls.Add(this.InboxFlowLayout);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(210, 56);
@@ -62,12 +63,23 @@
             this.panelDesktop.Size = new System.Drawing.Size(959, 628);
             this.panelDesktop.TabIndex = 6;
             // 
+            // adminPanelLbl
+            // 
+            this.adminPanelLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.adminPanelLbl.AutoSize = true;
+            this.adminPanelLbl.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.adminPanelLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(10)))), ((int)(((byte)(5)))));
+            this.adminPanelLbl.Location = new System.Drawing.Point(426, 272);
+            this.adminPanelLbl.Name = "adminPanelLbl";
+            this.adminPanelLbl.Size = new System.Drawing.Size(181, 32);
+            this.adminPanelLbl.TabIndex = 1;
+            this.adminPanelLbl.Text = "ADMIN PANEL";
+            // 
             // InboxFlowLayout
             // 
-            this.InboxFlowLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InboxFlowLayout.Location = new System.Drawing.Point(0, 0);
+            this.InboxFlowLayout.Location = new System.Drawing.Point(0, 392);
             this.InboxFlowLayout.Name = "InboxFlowLayout";
-            this.InboxFlowLayout.Size = new System.Drawing.Size(959, 628);
+            this.InboxFlowLayout.Size = new System.Drawing.Size(959, 236);
             this.InboxFlowLayout.TabIndex = 0;
             // 
             // panelTitleBar
@@ -157,7 +169,6 @@
             this.panelMenu.BackColor = System.Drawing.Color.AntiqueWhite;
             this.panelMenu.Controls.Add(this.LogoutBtn);
             this.panelMenu.Controls.Add(this.InboxBtn);
-            this.panelMenu.Controls.Add(this.ExhibitionsBtn);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -201,7 +212,7 @@
             this.InboxBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.InboxBtn.IconSize = 32;
             this.InboxBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.InboxBtn.Location = new System.Drawing.Point(0, 152);
+            this.InboxBtn.Location = new System.Drawing.Point(0, 105);
             this.InboxBtn.Name = "InboxBtn";
             this.InboxBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.InboxBtn.Size = new System.Drawing.Size(210, 47);
@@ -211,30 +222,6 @@
             this.InboxBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.InboxBtn.UseVisualStyleBackColor = false;
             this.InboxBtn.Click += new System.EventHandler(this.InboxBtn_Click);
-            // 
-            // ExhibitionsBtn
-            // 
-            this.ExhibitionsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ExhibitionsBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ExhibitionsBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ExhibitionsBtn.FlatAppearance.BorderSize = 0;
-            this.ExhibitionsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExhibitionsBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ExhibitionsBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ExhibitionsBtn.IconChar = FontAwesome.Sharp.IconChar.FeatherAlt;
-            this.ExhibitionsBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ExhibitionsBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ExhibitionsBtn.IconSize = 32;
-            this.ExhibitionsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ExhibitionsBtn.Location = new System.Drawing.Point(0, 105);
-            this.ExhibitionsBtn.Name = "ExhibitionsBtn";
-            this.ExhibitionsBtn.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.ExhibitionsBtn.Size = new System.Drawing.Size(210, 47);
-            this.ExhibitionsBtn.TabIndex = 2;
-            this.ExhibitionsBtn.Text = "Exhibitions";
-            this.ExhibitionsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ExhibitionsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ExhibitionsBtn.UseVisualStyleBackColor = false;
             // 
             // panelLogo
             // 
@@ -269,7 +256,9 @@
             this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panelDesktop.ResumeLayout(false);
+            this.panelDesktop.PerformLayout();
             this.panelTitleBar.ResumeLayout(false);
             this.panelTitleBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
@@ -295,6 +284,6 @@
         private Panel panelLogo;
         private PictureBox btnHome;
         private FlowLayoutPanel InboxFlowLayout;
-        private FontAwesome.Sharp.IconButton ExhibitionsBtn;
+        private Label adminPanelLbl;
     }
 }

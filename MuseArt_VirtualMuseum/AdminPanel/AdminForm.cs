@@ -18,13 +18,22 @@ namespace MuseArt_VirtualMuseum
         private IconButton currentButton;
         private Color redColor = Color.FromArgb(166, 10, 5); // redColor of application (used in MuseArt Logo etc.)
         private Form currentChildForm;
+        public Label apLbl;
+
+        public static FlowLayoutPanel panel = new FlowLayoutPanel();
+
         public AdminForm()
         {
             InitializeComponent();
+
+            panel = InboxFlowLayout;
+            apLbl = adminPanelLbl;
         }
 
-        private void loadEmails()
+        public static void loadEmails()
         {
+            panel.Controls.Clear();
+
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
             SqlConnection MartDB = new SqlConnection(@"Data Source =(LocalDB)\MSSQLLocalDB; AttachDbFilename=" + projectDirectory + @"\DatabaseMuseArt.mdf; Integrated Security = True; Connect Timeout = 30");
             MartDB.Open();
@@ -53,7 +62,7 @@ namespace MuseArt_VirtualMuseum
 
                 item.setLabels();
 
-                InboxFlowLayout.Controls.Add(item);
+                panel.Controls.Add(item);
             }
             MartDB.Close();
         }
@@ -99,13 +108,10 @@ namespace MuseArt_VirtualMuseum
 
         private void InboxBtn_Click(object sender, EventArgs e)
         {
+            InboxFlowLayout.Dock = DockStyle.Fill;
+            apLbl.Visible = false;
             ActivateButton(sender, redColor);
-            if(!clicked)
-            {
-                loadEmails();
-                clicked = true;
-            }
-            
+            loadEmails();
         }
     }
 }

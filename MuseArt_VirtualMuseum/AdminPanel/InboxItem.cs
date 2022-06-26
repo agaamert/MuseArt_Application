@@ -60,8 +60,6 @@ namespace MuseArt_VirtualMuseum
 
             MartDB.Close();
 
-            MessageBox.Show(this.ID.ToString(), "");
-
             IconEmailClosed.Visible = false;
             IconEmailOpened.Visible = true;
 
@@ -111,6 +109,7 @@ namespace MuseArt_VirtualMuseum
                 }
 
                 MartDB.Close();
+                AdminForm.loadEmails();
             }
             else { }
         }

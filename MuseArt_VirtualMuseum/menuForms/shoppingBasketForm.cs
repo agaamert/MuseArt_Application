@@ -84,7 +84,6 @@ namespace MuseArt_VirtualMuseum.menuForms
                 clrBtn.Visible = true;
                 emptyMsg.Visible = false;
             }
-
         }
 
         private void completeBtn_Click(object sender, EventArgs e)
